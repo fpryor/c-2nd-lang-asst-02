@@ -39,10 +39,10 @@ Second programming assignment for learning C as a second programming language.
 
 ### Extension
 
-Your choice here...
+I chose the doubly linked list with insert function. I also added a delete function.
 
 ### Implementation notes
 
-Your description here. Code samples will be appreciated...
-
+I used the code from the last project as a basis, but did some research and it seemed like I would need to use some double pointers to account for the 2-way nature of the list.
+Numbers can be added to the front, back, and inserted after a selected node. Selected nodes can also be deleted.
 
