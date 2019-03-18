@@ -21,22 +21,6 @@ void list_push(struct Node** head_ptr, int new_number) {
     (*head_ptr) = new_node;
 }
 
-void insert_after(struct Node* last_node, int new_number) {
-    if (last_node == NULL) {
-        printf("last node cannot be NULL");
-        return;
-    }
-
-    struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
-
-    new_node->number = new_number;
-    new_node->next = last_node->next;
-    last_node->next = new_node;
-    new_node->last = last_node;
-
-    if (new_node->next != NULL)
-        new_node->next->last = new_node;
-}
 
 void list_append(struct Node** head_ptr, int new_number) {
 
@@ -59,14 +43,21 @@ void list_append(struct Node** head_ptr, int new_number) {
     new_node->last = tail;
 }
 
-void print_list(struct Node* node) {
-    struct Node* tail;
-    printf("\nupdated list: \n");
-    while (node != NULL) {
-        printf("%d ", node->number);
-        tail = node;
-        node = node->next;
+void insert_after(struct Node* last_node, int new_number) {
+    if (last_node == NULL) {
+        printf("last node cannot be NULL");
+        return;
     }
+
+    struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
+
+    new_node->number = new_number;
+    new_node->next = last_node->next;
+    last_node->next = new_node;
+    new_node->last = last_node;
+
+    if (new_node->next != NULL)
+        new_node->next->last = new_node;
 }
 
 void delete_node(struct Node** head_ptr, int index) {
@@ -93,6 +84,16 @@ void delete_node(struct Node** head_ptr, int index) {
 
     temp->next = next;
 
+}
+
+void print_list(struct Node* node) {
+    struct Node* tail;
+    printf("\nupdated list: \n");
+    while (node != NULL) {
+        printf("%d ", node->number);
+        tail = node;
+        node = node->next;
+    }
 }
 
 int main() {
